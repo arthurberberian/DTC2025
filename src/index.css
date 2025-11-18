@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design System - Mentoria TDAH Landing Page */
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --background: 40 50% 98%;
+    --foreground: 0 0% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 16%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 47% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 40 20% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 20 47% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 20 47% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Theme Colors */
+    --background: 240 10% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 10% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 10% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 20 47% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 10% 18%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 20 47% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 20 47% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-muted;
+  }
+
+  /* Form inputs */
+  .input {
+    @apply w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-slate-900 transition-colors placeholder:text-slate-400 focus:border-ring focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1;
+  }
+
+  /* Card with soft shadow */
+  .card-soft {
+    @apply rounded-2xl border border-border bg-card shadow-sm;
+  }
+
+  /* Soft shadow utility */
+  .shadow-soft {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* ============================================
+   CTA Hero: Pulsar Animado
+   ============================================ */
+.cta-hero {
+  position: relative;
+}
+
+.cta-hero::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 16px;
+  box-shadow: 0 0 0 14px rgba(196, 109, 55, 0.00);
+  animation: pulseGlowIn 1.8s cubic-bezier(.4, 0, .2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseGlowIn {
+  0% {
+    box-shadow: 0 0 0 14px rgba(196, 109, 55, 0.00);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(196, 109, 55, 0.15);
+  }
+}
+
+/* ============================================
+   Badge Helpers
+   ============================================ */
+.badge-grad {
+  background: radial-gradient(70% 70% at 30% 30%, #F1B48F, #C46D37);
+}
+
+.txt-shadow {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .25);
+}
